@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+<li class="dropdown">
+    <a class="navbar-brand" href="@Url.Action("Contact","Home")"><b style="color: darkslateblue; font-size:medium">Giới Thiệu</b></a>
+</li>
+
+<li class="dropdown">
+    <a class="nav-link dropdown-toggle" href="#" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <b style="color: darkslateblue; font-size: medium">Loại Sản Phẩm</b>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item"> @Html.Action("Danhmuc", "Sanpham")</a></li>
+    </ul>
+</li>
+<li class="dropdown">
+    <a class="nav-link dropdown-toggle" href="#" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <b style="color: darkslateblue; font-size: medium">Nhà Phân Phối</b>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item"> @Html.Action("HDH", "Sanpham")</a></li>
+    </ul>
+</li>
+

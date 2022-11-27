@@ -1,0 +1,11 @@
+﻿@model IEnumerable<PANshop.Models.Hangsanxuat>
+
+<ul class="list-group">
+
+    @foreach (var item in Model)
+    {
+        <!--Lay du lieu id tu NXB Partial-->
+        <a href="@Url.Action("Danhmuc","Sanpham", new { id = item.Mahang})"
+           class="list-group-item">@item.Tenhang</a>
+    }
+</ul>

@@ -1,0 +1,21 @@
+﻿@using PANshop.Models;
+@model List<Hangsanxuat>
+
+
+<br />
+
+<div class="bg-black">
+
+
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-1">
+                <a href="@Url.Action("Danhmuc","Sanpham", new { id = item.Mahang})" > <button class="success"> @item.Tenhang</button></a>
+                    
+            </div>
+        }
+    </div>
+</div>

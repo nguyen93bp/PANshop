@@ -1,0 +1,50 @@
+﻿@using PANshop.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Sanpham>
+@{
+    ViewBag.Title = "Danhmuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="etext-center">Danh Mục Sản Phẩm </h2>
+<br>
+<div class="row text-center ">
+    @foreach (var sanpham in Model)
+    {
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+            <div class=" thumbnail">
+                <a href="@Url.Action("xemchitiet", new {@Masp=sanpham.Masp })">
+                    <img src=@Url.Content("~/HinhanhSP/"+sanpham.Anhbia) class="img-responsive" alt="" width="200" height="200" />
+                </a>
+                <center>
+                    <h4>@sanpham.Tensp</h4>
+                    <h5 style="color:red">Giá: @String.Format("{0:0,0}", sanpham.Giatien) VNĐ</h5>
+                    <br />
+                    <p>
+                        <a href="@Url.Action("ThemGioHang", "GioHang", new {iMasp = sanpham.Masp, url = Request.Url.ToString()})" class="btn btn-primary" role="button">
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+                            </span> Mua Hàng
+                        </a>
+                    </p>
+                </center>
+            </div>
+
+            </div>
+        
+    }
+</div>
+@*Tạo liên kết các trang*@
+@(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Danhmuc", new
+{
+    //id = ViewBag.Masp,
+    page = page
+}))
+</div>
+<style>
+    .MenuTrang {
+        display: inline;
+        text-align: center;
+    }
+</style>
